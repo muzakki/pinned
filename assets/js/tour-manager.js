@@ -1,0 +1,1 @@
+$(document).ready(function(){$('#tour-manager').openModal();$('.modal-trigger').leanModal();});$(window).load(function(){$('#tour-manager a').click(function(){$('#tourID').joyride({'tipLocation':'top','autoStart':true,'modal':true,'expose':true,});});});
