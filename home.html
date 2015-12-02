@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<link href='http://fonts.googleapis.com/icon?family=Material+Icons' rel="stylesheet"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/header.css"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/dashboard.css"/>
+		<link type="text/css" rel="stylesheet" href="assets/css/tab-content.css"/>
+		<link type="text/css" rel="stylesheet" href="materialize/css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="tmp/css">
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Raleway:200,600,900'/>
+		
+		
+		<title> Pinned - Event Portal </title>
+		
+	</head>
+	
+	<body>
+		
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('ul.tabs').tabs();
+			});
+		</script>
+		
+		<nav id="main-header" class="cyan">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo" style="font-family:raleway;padding:0px">Pinned</a>
+				<div class="header-search-wrapper hide-on-med-and-down">
+					<i class="mdi-action-search active"></i>
+					<input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Search Event">
+				</div>
+				<ul class="right side-nav">
+					<li class="relative"><a href="#"><i class="mdi-social-notifications"></i></a><div class="pulse"></div></li>
+					<li class="relative" id="profile-link"><a href="#"> <i class="mdi-action-account-circle"></i></a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div id="dashboard-cover" class="custom-parallax"></div>
+		
+		<section id="dashboard-content" style="background:#fafafa">
+			<div id="dashboard-content-tabs" class="tabs-menu z-depth-1">
+				<div class="container1">
+					<div class="row">
+						<div class="col s12">
+							<ul class="tabs" style="width:100%">
+								<li class="tab" style="width:50%"><a href="#">stream</a></li>
+								<li class="tab" style="width:50%"><a href="#" class="modal-trigger">discover</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Dropdown Trigger -->
+						<a class='dropdown-button btn' data-activates='dropdown1'>Drop Me!</a>
+						
+						<!-- Dropdown Structure -->
+						<ul id='dropdown1' class='dropdown-content'>
+							<li><a href="#!">one</a></li>
+							<li><a href="#!">two</a></li>
+							<li class="divider"></li>
+							<li><a href="#!">three</a></li>
+						</ul>
+			<!-- event cards-->
+				<div class="row">
+						<div class="event-card col s12 m4 l3">
+							<div class="card">
+								<div class="card-image">
+									<img src="images/event1.jpg">
+									<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
+								</div>
+								<!--
+									<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
+									<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
+									</p>
+									</div>
+								-->
+								<div class="divider"></div>
+								<div>
+									<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
+									<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
+								</div>
+								
+								<div class="card-action">
+									<a href="#">View</a>
+									<a href='#'>Join</a>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					
+		</section>		
+		
+<style>
+	.container1 {
+    width: 100%;
+}
+ul.tabs {
+    height: 60px;
+    line-height: 60px;
+}
+</style>

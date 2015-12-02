@@ -1,1 +1,22 @@
-#dashboard-cover{width:100%;height:200px;background:url('../imgs/commons/cover.jpg') center center no-repeat fixed;background-size:cover;}#dashboard-content-wrapper .card span{margin:0 3px;}#dashboard-content-wrapper .card .event{text-transform:uppercase;font-weight:900;color:#00BCD4;}#dashboard-content-wrapper .card .user{color:#00BCD4;}#dashboard-content-wrapper .card .board{text-transform:uppercase;font-weight:900;color:#00BCD4;}
+#dashboard-cover{
+	width:100%;
+	height:200px;
+	background:url('../imgs/commons/cover.jpg') center center no-repeat fixed;
+	background-size:cover;
+	}
+#dashboard-content-wrapper .card span{
+	margin:0 3px;
+	}
+#dashboard-content-wrapper .card .event{
+	text-transform:uppercase;
+	font-weight:900;
+	color:#00BCD4;
+	}
+#dashboard-content-wrapper .card .user{
+	color:#00BCD4;
+	}
+#dashboard-content-wrapper .card .board{
+	text-transform:uppercase;
+	font-weight:900;
+	color:#00BCD4;
+	}
