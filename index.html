@@ -17,7 +17,7 @@
 		<link type="text/css" rel="stylesheet" href="assets/css/profile.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/board.css"/>
 		<link type="text/css" rel="stylesheet" href="materialize/css/style.css"/>
-		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css"/>
 		
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -27,20 +27,11 @@
 		<script type="text/javascript" src="assets/js/libs/jquery.cookie.js"></script>
 		<script type="text/javascript" src="assets/js/libs/jquery.joyride.js"></script>
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		
+		<script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+      
 	</head>
 	<body>
-		<script type="text/javascript">
-			$('ul.dropdown-content.li input').on('click', function (event) {
-				$(this).parent().toggleClass("open");
-			});
-			
-			$('body').on('click', function (e) {
-				if (!$('ul.dropdown-content.li').is(e.target) && $('ul.dropdown-content.li').has(e.target).length === 0 && $('.open').has(e.target).length === 0) {
-					$('ul.dropdown-content.li').removeClass('open');
-				}
-			});
-		</script>
+	
 		<div id="la-container" class="dashboard-page">
 			<nav id="main-header" class="cyan">
 				<div class="nav-wrapper">
@@ -51,16 +42,16 @@
 					</div>
 					<ul class="right side-nav">
 						<li><a href="#"><i class="mdi-social-notifications"></i></a></li>
-						<li  class="dropdown-button relative waves-effect waves-cyan-lighten-5" data-activates="form" data-constrainwidth="false" data-beloworigin="true"   id="profile-link-example">
-						<a><img class="profile-img" src="assets/imgs/commons/me.png"/><div class="pulse"></div></a></li>
+						<li  class="relative" id="profile">
+						<a><img class="profile-img" src="assets/imgs/commons/me.png"/><div class="pulse waves-effect waves-cyan-lighten-5"></div></a></li>
 					</ul>
 				</div>
 			</nav>
 			
 			
-			<div id="form" class="row dropdown-content">
+			<div id="login-form" class="row webui-popover-content">
 							<div class="col s12">
-								<form class="loginform">
+								<form class="loginform" action="login.php" method="post">
 									<div class="margin">
 										<div class="input-field col s12 center">
 											<p class="center login-form-text">Login with your account</p>
@@ -93,7 +84,7 @@
 									</div>
 									<div class="margin">
 										<div class="input-field col s6 m6 l6">
-											<p class="margin medium-small"><a href="page-register.html">Register Now!</a></p>
+											<p class="margin medium-small"><a href="signup.html">Register Now!</a></p>
 										</div>
 										<!--
 											<div class="input-field col s6 m6 l6">
@@ -274,7 +265,7 @@
 									</div>
 									<div class="margin">
 										<div class="input-field col s6 m6 l6">
-											<p class="margin medium-small"><a href="page-register.html">Register Now!</a></p>
+											<p class="margin medium-small"><a href="signup.html">Register Now!</a></p>
 										</div>
 										<!--
 											<div class="input-field col s6 m6 l6">
@@ -312,6 +303,13 @@
 				
 				
 				
-			</div>		
+			</div>	
+			<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+      <script>
+           $('#profile').webuiPopover({url:'#login-form'});
+      </script>
 		</body>
 	</html>																		
