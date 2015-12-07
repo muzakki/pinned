@@ -1,1 +1,28 @@
-#main-header{position:fixed;width:100%;top:0;left:0;height:60px;line-height:60px;padding:0 30px;z-index:999;}#main-header .brand-logo{padding:5px;}#main-header .brand-logo img{height:50px;width:50px;}#main-header ul,#main-header ul li,#main-header ul li a{height:100%;}#main-header ul li:hover{background:rgba(255,255,255,0.3);}#main-header ul li a{padding:0px 15px;}#main-header ul li .profile-img{border-radius:50%;border:2px solid #FFF;margin-top:10px;width:42px;}
+#main-header{
+  position:fixed;
+  width:100%;
+  top:0;left:0;
+  height:60px;
+  line-height:60px;
+  padding:0 30px;
+  z-index:999;
+  }
+  #main-header .brand-logo{
+    padding:5px;
+    }
+  #main-header .brand-logo img{
+    height:50px;width:50px;
+    }
+  #main-header ul,#main-header ul li,#main-header ul li a{
+    height:100%;
+    }
+  #main-header ul li:hover{
+    background:rgba(255,255,255,0.3);
+    }
+  #main-header ul li a{
+    padding:0px 15px;
+    }
+  #main-header ul li .profile-img{
+    border-radius:50%;border:2px solid #FFF;
+    margin-top:10px;width:42px;
+  }

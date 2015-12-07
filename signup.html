@@ -22,7 +22,7 @@
 			<nav id="main-header" class="cyan">
 				<div class="nav-wrapper">
 
-					<a href="#" class="brand-logo">
+					<a href="index.html" class="brand-logo">
 						<p style="color:#fff;line-height:0px">Pinned</p>
 					</a>
 
@@ -46,6 +46,19 @@
 							<div class="card">
 								<div class="card-content">
 									<form action="signup.php" method="post">
+										<?php
+											session_start();
+											if (!empty($_GET['error'])) {
+											    if ($_GET['error'] == 1) {
+											        $rep = "<h3 style='color:red'>Fill the all fields!!</h3>";
+											    } else if ($_GET['error'] == 2) {
+											        $rep = "<h3 style='color:red'>Password doesn\'t match!!</h3>";
+											    } else if ($_GET['error'] == 3) {
+											        $rep = "<h3 style='color:red'>Username already taken!!</h3>";
+											    }
+											}
+											echo $rep;
+										?>
 										<div class="row">
 											<div class="input-field col s12">
 												<input id="fullname" name="fullname" type="text" class="validate">
