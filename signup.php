@@ -17,8 +17,7 @@
       $row = mysqli_fetch_array($q);
       $dbuname=$row['u_username'];
       if($username==$dbuname) {
-        $message = "The username already taken!!";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        header('location:signup.html?error=3'); // username
       } else {
         mysqli_query($con,"INSERT INTO user (u_username,u_password,u_email,u_name)
         VALUES ('$username','$password','$email','$name')");
@@ -29,12 +28,10 @@
         echo '</script>';
       }
     } else {
-    $message = "The password doesn't match!!";
-    echo "<script type='text/javascript'>alert('$message');</script>";
+      header('location:signup.html?error=2'); // verifpass
     }
   } else {
-    $message = "Fill up the all fields!!";
-    echo "<script type='text/javascript'>alert('$message');</script>";
+      header('location:signup.html?error=1'); // empty field
   }
   echo '<script type="text/javascript">window.location.href="signup.html";</script>';
 ?>
