@@ -205,7 +205,7 @@
 											</div>
 
 											<div class="card-action">
-												<a href="">View</a>
+												<a href="eventpage.html">View</a>
 												<a href=''>Join</a>
 											</div>
 
