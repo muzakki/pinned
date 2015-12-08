@@ -155,7 +155,7 @@
 				</div>
 			</div>
 
-			<section id="dashboard-content">
+<!--			<section id="dashboard-content">
 				<div id="dashboard-content-tabs" class="tabs-menu z-depth-1">
 					<div class="container">
 						<div class="row">
@@ -168,7 +168,7 @@
 						</div>
 					</div>
 				</div>
-
+-->
 
 
 				<div id="dashboard-content-wrapper" class="tabs-content">
@@ -185,343 +185,37 @@
 							<div style="clear:both" id="stream">
 								<!--<a style="display:block;text-transform: none;float:right;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>-->
 								<!-- event cards-->
+
+								<?php
+											$query = "SELECT * FROM event_table"; //You don't need a ; like you do in SQL
+											$result = mysql_query($query);
+
+											while($row = mysql_fetch_array($result)){   //Creates a loop to
+?>
 								<div class="row" style="clear:both">
 									<div class="event-card col s12 m4 l3">
 										<div class="card">
 											<div class="card-image">
-												<img src="images/event1.jpg">
-												<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
+												<img style="max-height:200px" src="<?php echo $row['e_picture'] ?>">
+												<span class="card-title" style="background-color:rgba(0,0,0,0.5);padding-left:0px;padding-bottom:3px;padding-left:5px"><?php echo $row['e_name'] ?></span>
 											</div>
-											<!--
-												<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-												<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-												</p>
-												</div>
-											-->
 											<div class="divider"></div>
-											<div>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
+											<div style="height:100px;max-height:100px">
+												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> <?php echo $row['e_date'] ?> </p>
+												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> <?php echo $row['e_place'] ?> </p>
 											</div>
 
 											<div class="card-action">
-												<a href="eventpage.html">View</a>
+												<a href="#">View</a>
 												<a href=''>Join</a>
 											</div>
 
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="event-card col s12 m4 l3">
-										<div class="card">
-											<div class="card-image">
-												<img src="images/event1.jpg">
-												<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-											</div>
-											<!--
-												<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-												<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-												</p>
-												</div>
-											-->
-											<div class="divider"></div>
-											<div>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-											</div>
-
-											<div class="card-action">
-												<a href="#">View</a>
-												<a href='#'>Join</a>
-											</div>
-
-										</div>
-									</div>
-									</div><div class="row">
-									<div class="event-card col s12 m4 l3">
-										<div class="card">
-											<div class="card-image">
-												<img src="images/event1.jpg">
-												<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-											</div>
-											<!--
-												<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-												<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-												</p>
-												</div>
-											-->
-											<div class="divider"></div>
-											<div>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-											</div>
-
-											<div class="card-action">
-												<a href="#">View</a>
-												<a href='#'>Join</a>
-											</div>
-
-										</div>
-									</div>
-									</div><div class="row">
-									<div class="event-card col s12 m4 l3">
-										<div class="card">
-											<div class="card-image">
-												<img src="images/event1.jpg">
-												<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-											</div>
-											<!--
-												<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-												<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-												</p>
-												</div>
-											-->
-											<div class="divider"></div>
-											<div>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-											</div>
-
-											<div class="card-action">
-												<a href="#">View</a>
-												<a href='#'>Join</a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<!-- event cards End-->
-							</div>
-
-						</div>
-						<!------ ----------------->
-						<div class="row">
-							<div id="categoty-name" style="padding:15px;padding-bottom:0px;font-family:roboto">
-								<p style="font-size:25px;
-								font-weight:300;line-height:0px;margin-bottom: 10px;"> New Events </p>
-								<div class="row" style="    margin-bottom: 0px; padding-left: 10px;padding-right: 10px">
-								<a style="float:right;display:block;text-transform: none;;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px; margin-right:5px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>
-						</div>
-							</div>
-
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-						</div>
-
-
-						<div class="row">
-							<div id="categoty-name" style="padding:15px;padding-bottom:0px;font-family:roboto">
-								<p style="font-size:25px;
-								font-weight:300;line-height:0px;margin-bottom: 10px;"> New Events </p>
-								<div class="row" style="    margin-bottom: 0px; padding-left: 10px;padding-right: 10px">
-								<a style="float:right;display:block;text-transform: none;;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px; margin-right:5px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>
-						</div>
-							</div>
-
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-
-								<div class="event-card col s12 m4 l3">
-									<div class="card">
-										<div class="card-image">
-											<img src="images/event1.jpg">
-											<span class="card-title" style="padding-left:0px;padding-bottom:3px;margin-left:5px">Google I/O 2015</span>
-										</div>
-										<!--
-											<div class="card-content" style="padding:10px;height:75px;box-sizing: initial;">
-											<p style="font-size:13px">Google I/O 2015 brings together developers for an immersive, two-day experience focused on exploring the next generation of technology, mobile and beyond
-											</p>
-											</div>
-										-->
-										<div class="divider"></div>
-										<div>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> 27 - 29 December 2015 </p>
-											<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> Jakarta </p>
-										</div>
-
-										<div class="card-action">
-											<a href="#">View</a>
-											<a href='#'>Join</a>
-										</div>
-
-									</div>
-								</div>
-						</div>
+<?php
+	}
+?>
 
 						<div id="form" class="row dropdown-content">
 							<div class="col s12">

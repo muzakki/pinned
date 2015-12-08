@@ -128,6 +128,19 @@
             </div>
           </div>
       </div>
+<?php
+			$query = 'SELECT * FROM pinned_table where id_user ="'.$_SESSION['userid'].'";'; //You don't need a ; like you do in SQL
+			$result = mysql_query($query);
+
+			echo "<table>"; // start a table tag in the HTML
+
+			while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<tr><td>" . $row['name'] . "</td><td>" . $row['age'] . "</td></tr>";  //$row['index'] the index here is a field name
+			}
+
+			echo "</table>";
+?>
+
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
