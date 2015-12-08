@@ -4,11 +4,13 @@ session_start();
 header('Content-type: text/html;charset=UTF-8');
 if(!isset($_SESSION['username']) and isset($_COOKIE['username'], $_COOKIE['password']))
 {
-	$cnn = mysql_query('select u_password, id_user from user where u_username="'.mysql_real_escape_string($_COOKIE['username']).'"');
+	$cnn = mysql_query('select u_password, u_name, id_user from user where u_username="'.mysql_real_escape_string($_COOKIE['username']).'"');
 	$dn_cnn = mysql_fetch_array($cnn);
-	if(sha1($dn_cnn['password'])==$_COOKIE['password'] and mysql_num_rows($cnn)>0)
+	$password = md5($dn_cnn['password']);
+	if($password==$_COOKIE['password'] and mysql_num_rows($cnn)>0)
 	{
 		$_SESSION['username'] = $_COOKIE['u_username'];
+		$_SESSION['name'] = $dn_cnn['u_name'];
 		$_SESSION['userid'] = $dn_cnn['id_user'];
 	}
 }

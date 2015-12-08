@@ -16,21 +16,6 @@
 		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"/>
 		<link type="text/css" rel="stylesheet" href="materialize/css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/tour-manager.css"/>
-		<!--<link type="text/css" rel="stylesheet" href="assets/css/joyride.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/override.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/general.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/form.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/header.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/tab-content.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/dashboard.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/profile.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/board.css"/>
-		-->
-
-
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -75,7 +60,7 @@
 			<div class="navbar-fixed">
 				<nav id="main-header" class="cyan">
 				<div style="padding-left:30px;padding-right:30px"class="nav-wrapper">
-					<a href="#" class="brand-logo" style="font-family:raleway;padding:0px;padding-left:30px">Pinned</a>
+					<a href="index.php" class="brand-logo" style="font-family:raleway;padding:0px;padding-left:30px">Pinned</a>
 					<div class="header-search-wrapper hide-on-med-and-down">
 						<i class="mdi-action-search active"></i>
 						<input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Search Event">
@@ -83,7 +68,17 @@
 					<ul class="right">
 <!--						<li><a><i class="mdi-social-notifications"></i></a></li> -->
 						<li  class="relative waves-effect waves-cyan-darken-1">
-						<a id="login"><i class="material-icons">account_circle</i><div class="pulse"></div></a></li>
+							<?php
+							if(isset($_SESSION['username'])){
+								?>
+								<a id="login"><i class="material-icons">account_circle</i><div class="pulse"></div></a></li>
+								<?php
+							} else {
+							?>
+						<a id="login"><i class="material-icons">account_circle</i></a></li>
+						<?php
+						}
+					 ?>
 					</ul>
 				</div>
 			</nav>
@@ -109,6 +104,7 @@
 			?>
 		</div>
 	</div>
+
 	<div class="margin">
 		<div class="input-field col s12" style="margin-bottom:0px">
 			<i class="mdi-social-person-outline prefix"></i>
@@ -157,21 +153,19 @@
 
 			<?php
 						$query = "SELECT * FROM event_table where id_event=".$_GET['id']; //You don't need a ; like you do in SQL
-
 						$result = mysql_query($query);
-
-
-						$row = mysql_fetch_array($result);   //Creates a loop to
+						$row = mysql_fetch_array($result);
 			?>
 
 			<section id="dashboard-content">
 
-					<div class="container">
-						<div style="margin-top:20px"class="row">
+					<div class="container" style="padding-left:90px;padding-right:90px">
+						<div style="margin-top:20px;" class="row">
 							<div id="event-banner">
 								<img src="<?php echo $row['e_picture'] ?>">
 							</div>
 						</div class="row">
+						<div class="row" style="max-width:600px">
 							<h5> <?php echo $row['e_name'] ?> </h5>
 							<br>
 							<h6> <?php echo $row['e_descript'] ?> </h6>
@@ -181,18 +175,39 @@
 												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="material-icons">event</i></span> <p> <?php echo $row['e_date'] ?> </p>
 												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="material-icons">room</i></span> <p> <?php echo $row['e_place'] ?> </p>
 											</div>
-
+										</div>
 							<?php
+
+
 							if(isset($_SESSION['username'])){
-								$query2 = "INSERT INTO 'pinned_table' ('id_event', 'id_user') VALUES
-								('".$row['id_event']."','".$_SESSION['userid']."')";
-?>
+								$query3 = "SELECT * FROM pinned_event where id_user = ".$_SESSION['userid'];
+								$rest = mysql_query($query3);
+								$gett = mysql_fetch_array($rest);
 
-<button class="btn green waves-effect waves-light" onclick="<?php mysql_query($query2); ?>"  >Pin to my Calendar</button>
+								$query2 = "INSERT INTO pinned_event (id_event, id_user) VALUES
+								(".$row['id_event'].",".$_SESSION['userid'].")";
 
-<?php
+								if (isset($_GET['var'])) {
+									if ($_GET['var']){
+										$dn = mysql_num_rows(mysql_query('select id_user from pinned_event where id_event="'.$_GET['id'].'"'));
+										if($dn==0){
+											mysql_query($query2);
+										}
+									}
+								}
+
+								$dn = mysql_num_rows(mysql_query('select id_user from pinned_event where id_event="'.$_GET['id'].'"'));
+
+								if($dn==0){
+									echo "<a class='btn green waves-effect waves-light' href='eventpage.php?var=true&id=".$_GET['id']."'>Pin to my Calendar</a>";
+
+								} else {
+								?>
+									<button class="btn light-grey waves-effect waves-light"  >Already pinned</button>
+								<?php
+								}
 							}
-							?>
+								?>
 
 						</div>
 					</div>
@@ -210,6 +225,9 @@
 							}
 
 						</style>
+					</div>
+					<div id="space">
+						<div class="row" style="padding-bottom: 100px"></div>
 					</div>
 				</section>
 

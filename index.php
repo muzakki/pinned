@@ -16,21 +16,6 @@
 		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"/>
 		<link type="text/css" rel="stylesheet" href="materialize/css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/tour-manager.css"/>
-		<!--<link type="text/css" rel="stylesheet" href="assets/css/joyride.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/override.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/general.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/form.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/header.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/tab-content.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/dashboard.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/profile.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/board.css"/>
-		-->
-
-
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -75,7 +60,7 @@
 			<div class="navbar-fixed">
 				<nav id="main-header" class="cyan">
 				<div style="padding-left:30px;padding-right:30px"class="nav-wrapper">
-					<a href="#" class="brand-logo" style="font-family:raleway;padding:0px;padding-left:30px">Pinned</a>
+					<a href="index.php" class="brand-logo" style="font-family:raleway;padding:0px;padding-left:30px">Pinned</a>
 					<div class="header-search-wrapper hide-on-med-and-down">
 						<i class="mdi-action-search active"></i>
 						<input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Search Event">
@@ -83,7 +68,17 @@
 					<ul class="right">
 <!--						<li><a><i class="mdi-social-notifications"></i></a></li> -->
 						<li  class="relative waves-effect waves-cyan-darken-1">
-						<a id="login"><i class="material-icons">account_circle</i><div class="pulse"></div></a></li>
+							<?php
+							if(isset($_SESSION['username'])){
+								?>
+								<a id="login"><i class="material-icons">account_circle</i><div class="pulse"></div></a></li>
+								<?php
+							} else {
+							?>
+						<a id="login"><i class="material-icons">account_circle</i></a></li>
+						<?php
+						}
+					 ?>
 					</ul>
 				</div>
 			</nav>
@@ -109,6 +104,7 @@
 			?>
 		</div>
 	</div>
+
 	<div class="margin">
 		<div class="input-field col s12" style="margin-bottom:0px">
 			<i class="mdi-social-person-outline prefix"></i>
@@ -154,6 +150,7 @@
 	?>
 				</div>
 			</div>
+		</div>
 
 <!--			<section id="dashboard-content">
 				<div id="dashboard-content-tabs" class="tabs-menu z-depth-1">
@@ -249,12 +246,12 @@
 									</div>
 									<div class="margin" style="padding-bottom:0px">
 										<div class="input-field col s12" style="margin-bottom:0px">
-											<a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
+											<a href="index.php" class="btn waves-effect waves-light col s12">Login</a>
 										</div>
 									</div>
 									<div class="margin">
 										<div class="input-field col s6 m6 l6">
-											<p class="margin medium-small"><a href="signup.html">Register Now!</a></p>
+											<p class="margin medium-small"><a href="signup.php">Register Now!</a></p>
 										</div>
 										<!--
 											<div class="input-field col s6 m6 l6">

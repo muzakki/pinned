@@ -16,21 +16,6 @@
 		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"/>
 		<link type="text/css" rel="stylesheet" href="materialize/css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="assets/css/tour-manager.css"/>
-		<!--<link type="text/css" rel="stylesheet" href="assets/css/joyride.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/override.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/general.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/form.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/header.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/tab-content.css"/>
-
-			<link type="text/css" rel="stylesheet" href="assets/css/dashboard.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/profile.css"/>
-			<link type="text/css" rel="stylesheet" href="assets/css/board.css"/>
-		-->
-
-
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -83,7 +68,17 @@
 					<ul class="right">
 <!--						<li><a><i class="mdi-social-notifications"></i></a></li> -->
 						<li  class="relative waves-effect waves-cyan-darken-1">
-						<a id="login"><i class="material-icons">account_circle</i><div class="pulse"></div></a></li>
+							<?php
+							if(isset($_SESSION['username'])){
+								?>
+								<a id="login"><i class="material-icons">account_circle</i><div class="pulse"></div></a></li>
+								<?php
+							} else {
+							?>
+						<a id="login"><i class="material-icons">account_circle</i></a></li>
+						<?php
+						}
+					 ?>
 					</ul>
 				</div>
 			</nav>
@@ -109,6 +104,7 @@
 			?>
 		</div>
 	</div>
+
 	<div class="margin">
 		<div class="input-field col s12" style="margin-bottom:0px">
 			<i class="mdi-social-person-outline prefix"></i>
@@ -156,12 +152,12 @@
 			</div>
 
 			<?php
-						$query = "SELECT * FROM user"; //You don't need a ; like you do in SQL
+						$query = "SELECT * FROM user where id_user=".$_SESSION['userid']; //You don't need a ; like you do in SQL
 						$result = mysql_query($query);
 						$row = mysql_fetch_array($result);   //Creates a loop to
 ?>
 
-
+			<div class="container">
       <div class="row">
           <div class="s10 offset-s1 col">
             <div class="m12 col">
@@ -185,11 +181,9 @@
             </div>
           </div>
       </div>
-
-			<h5>Pinned Event</h5>
-			<div class="container">
+				<h5>Pinned Event</h5>
 <?php
-			$query = 'SELECT * from event_table'; //You don't need a ; like you do in SQL
+			$query = 'SELECT e.e_name, e.e_place, e.e_date from event_table e join pinned_event p on e.id_event = p.id_event where p.id_user ='.$_SESSION['userid']; //You don't need a ; like you do in SQL
 			$result = mysql_query($query);
 			$i = 0;
 			echo "<table class='striped'>"; // start a table tag in the HTML
@@ -201,13 +195,8 @@
 			</tr>
 <?php
 			while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				if($i > 1){
-					break;
-				};
 				echo "<tr><td>" . $row['e_name'] . "</td><td>" . $row['e_place'] . "</td><td>" . $row['e_date']."</td></tr>";  //$row['index'] the index here is a field name
-				$i += 1;
 			}
-
 			echo "</table>";
 ?>
 </div>
