@@ -147,7 +147,7 @@
 ?>
 
 	<li><a href="profil.html">Profile</a></li>
-	<li><a href="logout.php">Logout</a></li>
+	<li><a href="login.php">Logout</a></li>
 
 <?php
 			}

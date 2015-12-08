@@ -6,7 +6,13 @@ include('config.php');
 //include_once("connection/dbconnect.php");
 
 //get input from login
-$ousername = '';
+if(isset($_SESSION['username']))
+{
+  unset($_SESSION['username'], $_SESSION['userid']);
+  echo '<h3>Login Sukses!</h3>';
+  header('location:index.php');
+} else {
+  $ousername = '';
 				if(isset($_POST['username'], $_POST['password']))
 				{
 					$username = mysql_real_escape_string($_POST['username']);
@@ -31,4 +37,6 @@ $ousername = '';
 			} else {
         header('location:index.php?error=1');
 			}
+}
+
 ?>
