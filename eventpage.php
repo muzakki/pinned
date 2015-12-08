@@ -155,115 +155,47 @@
 				</div>
 			</div>
 
-<!--			<section id="dashboard-content">
-				<div id="dashboard-content-tabs" class="tabs-menu z-depth-1">
+			<?php
+						$query = "SELECT * FROM event_table where id_event=".$_GET['id']; //You don't need a ; like you do in SQL
+
+						$result = mysql_query($query);
+
+
+						$row = mysql_fetch_array($result);   //Creates a loop to
+			?>
+
+			<section id="dashboard-content">
+
 					<div class="container">
-						<div class="row">
-							<div class="col s12">
-								<ul class="tabs">
-									<li class="tab" style="width:50%"><a class="waves-effect" href="#stream">stream</a></li>
-									<li class="tab" style="width:50%"><a class="waves-effect waves-green" href="#tour-manager-nope" class="modal-trigger">discover</a></li>
-								</ul>
+						<div style="margin-top:20px"class="row">
+							<div id="event-banner">
+								<img src="<?php echo $row['e_picture'] ?>">
 							</div>
+						</div class="row">
+							<h5> <?php echo $row['e_name'] ?> </h5>
+							<br>
+							<h6> <?php echo $row['e_descript'] ?> </h6>
+
+							<div class="divider"></div>
+							<div>
+												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="material-icons">event</i></span> <p> <?php echo $row['e_date'] ?> </p>
+												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="material-icons">room</i></span> <p> <?php echo $row['e_place'] ?> </p>
+											</div>
+
+							<?php
+							if(isset($_SESSION['username'])){
+								$query2 = "INSERT INTO 'pinned_table' ('id_event', 'id_user') VALUES
+								('".$row['id_event']."','".$_SESSION['userid']."')";
+?>
+
+<button class="btn green waves-effect waves-light" onclick="<?php mysql_query($query2); ?>"  >Pin to my Calendar</button>
+
+<?php
+							}
+							?>
+
 						</div>
 					</div>
-				</div>
--->
-
-
-				<div id="dashboard-content-wrapper" class="tabs-content">
-					<div class="container">
-						<div id="content" class="row">
-							<div id="categoty-name" style="padding:15px;padding-bottom:0px;font-family:roboto">
-								<p style="font-size:25px;
-								font-weight:300;line-height:0px;margin-bottom: 10px;"> New Events </p>
-								<div class="row" style="    margin-bottom: 0px; padding-left: 10px;padding-right: 10px">
-<!--								<a style="float:right;display:block;text-transform: none;;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px; margin-right:5px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a> -->
-						</div>
-							</div>
-
-							<div style="clear:both" id="stream">
-								<!--<a style="display:block;text-transform: none;float:right;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>-->
-								<!-- event cards-->
-
-								<?php
-											$query = "SELECT * FROM event_table"; //You don't need a ; like you do in SQL
-											$result = mysql_query($query);
-
-											while($row = mysql_fetch_array($result)){   //Creates a loop to
-?>
-								<div class="row" style="clear:both">
-									<div class="event-card col s12 m4 l3">
-										<div class="card">
-											<div class="card-image">
-												<img style="max-height:200px" src="<?php echo $row['e_picture'] ?>">
-												<span class="card-title" style="background-color:rgba(0,0,0,0.5);padding-left:0px;padding-bottom:3px;padding-left:5px"><?php echo $row['e_name'] ?></span>
-											</div>
-											<div class="divider"></div>
-											<div style="height:100px;max-height:100px">
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-event"></i></span> <p> <?php echo $row['e_date'] ?> </p>
-												<span style="margin-left:10px;margin-right:10px;float:left"> <i class="mdi-action-room"></i></span> <p> <?php echo $row['e_place'] ?> </p>
-											</div>
-											<?php
-											$dirr = "eventpage.php?id=".$row['id_event'];
-											 ?>
-											<div class="card-action">
-												<a href=<?php echo $dirr ?>>View</a>
-<!--												<a href=''>Join</a> -->
-											</div>
-
-										</div>
-									</div>
-								</div>
-<?php
-	}
-?>
-
-						<div id="form" class="row dropdown-content">
-							<div class="col s12">
-								<form class="loginform">
-									<div class="margin">
-										<div class="input-field col s12 center">
-											<p class="center login-form-text">Login with your account</p>
-										</div>
-									</div>
-									<div class="margin">
-										<div class="input-field col s12" style="margin-bottom:0px">
-											<i class="mdi-social-person-outline prefix"></i>
-											<input id="username" type="text">
-											<label for="username" class="center-align">Username</label>
-										</div>
-									</div>
-									<div class="margin">
-										<div class="input-field col s12" style="margin-bottom:0px">
-											<i class="mdi-action-lock-outline prefix"></i>
-											<input id="password" type="password">
-											<label for="password">Password</label>
-										</div>
-									</div>
-									<div class="margin">
-										<div class="input-field col s12 m12 l12  login-text"style="margin-bottom:0px">
-											<input type="checkbox" id="remember-me" />
-											<label for="remember-me">Remember me</label>
-										</div>
-									</div>
-									<div class="margin" style="padding-bottom:0px">
-										<div class="input-field col s12" style="margin-bottom:0px">
-											<a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
-										</div>
-									</div>
-									<div class="margin">
-										<div class="input-field col s6 m6 l6">
-											<p class="margin medium-small"><a href="signup.html">Register Now!</a></p>
-										</div>
-										<!--
-											<div class="input-field col s6 m6 l6">
-											<p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
-										</div> -->
-									</div>
-								</form>
-							</div>
-						</div>
 
 
 
@@ -276,19 +208,17 @@
 							margin-left: auto;
 							margin-right: auto;
 							}
-				i.mdi-action-search.active{color:#767676}
+
 						</style>
 					</div>
 				</section>
 
-
-
 			</div>
-		</div>
+
 			<script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
 			<script>
-				$('#login').webuiPopover({url:'#form'});
-			</script>
+           $('#login').webuiPopover({url:'#form'});
+      </script>
 		</body>
 
 	</html>

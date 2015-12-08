@@ -1,5 +1,6 @@
 <?php
 	include('config.php');
+	$rep ='';
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,7 @@
 			<nav id="main-header" class="cyan">
 				<div class="nav-wrapper">
 
-					<a href="index.html" class="brand-logo">
+					<a href="index.php" class="brand-logo">
 						<p style="color:#fff;line-height:0px">Pinned</p>
 					</a>
 

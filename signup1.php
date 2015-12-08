@@ -24,7 +24,7 @@
 
         echo '<script language="javascript">';
         echo 'alert("Signup success!!");';
-        echo 'window.location.href="index.html";';
+        echo 'window.location.href="index.php";';
         echo '</script>';
       }
     } else {
@@ -33,5 +33,5 @@
   } else {
       header('location:signup.php?error=1'); // empty field
   }
-  echo '<script type="text/javascript">window.location.href="signup.html";</script>';
+  echo '<script type="text/javascript">window.location.href="signup.php";</script>';
 ?>
