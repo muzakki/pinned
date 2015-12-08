@@ -177,6 +177,9 @@
 							<div id="categoty-name" style="padding:15px;padding-bottom:0px;font-family:roboto">
 								<p style="font-size:25px;
 								font-weight:300;line-height:0px;margin-bottom: 10px;"> New Events </p>
+								<div class="row" style="    margin-bottom: 0px; padding-left: 10px;padding-right: 10px">
+								<a style="float:right;display:block;text-transform: none;;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px; margin-right:5px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>
+						</div>
 							</div>
 
 							<div style="clear:both" id="stream">
@@ -297,6 +300,9 @@
 							<div id="categoty-name" style="padding:15px;padding-bottom:0px;font-family:roboto">
 								<p style="font-size:25px;
 								font-weight:300;line-height:0px;margin-bottom: 10px;"> New Events </p>
+								<div class="row" style="    margin-bottom: 0px; padding-left: 10px;padding-right: 10px">
+								<a style="float:right;display:block;text-transform: none;;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px; margin-right:5px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>
+						</div>
 							</div>
 
 								<div class="event-card col s12 m4 l3">
@@ -408,6 +414,9 @@
 							<div id="categoty-name" style="padding:15px;padding-bottom:0px;font-family:roboto">
 								<p style="font-size:25px;
 								font-weight:300;line-height:0px;margin-bottom: 10px;"> New Events </p>
+								<div class="row" style="    margin-bottom: 0px; padding-left: 10px;padding-right: 10px">
+								<a style="float:right;display:block;text-transform: none;;color:white;padding-left:5px;padding-right:5px;padding-bottom:0px; margin-right:5px;font-weight:normal;width:78px" class="btn-flat green waves-effect waves-light right-align;font-weight:normal"> See more </a>
+						</div>
 							</div>
 
 								<div class="event-card col s12 m4 l3">
